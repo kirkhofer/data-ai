@@ -69,7 +69,7 @@ Create a summary view on top of the deduplication view to aggregate quarterly va
 .create materialized-view TotalSales_Quarterly on table TotalSales
 {
     TotalSales
-    | summarize salesAmt=sum(amount), salesCount=dcount(salesId) by Year=datetime_part("Year",salesDate), Quarter=datetime_part("Quarter", salesDate)
+    | summarize salesAmt=sum(amount), salesCount=count() by Year=datetime_part("Year",salesDate), Quarter=datetime_part("Quarter", salesDate)
 }
 ```
 
