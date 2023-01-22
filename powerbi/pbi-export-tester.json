@@ -1,0 +1,134 @@
+{
+    "wait":5,
+    "exportToDisk":false,
+    "reports":[
+        {
+            "workspaceId":"a4a82203-3a5b-41eb-8144-7ef8d604b317",
+            "reportId":"3a261b84-6ca2-4ca3-9d0d-48b868c8dc9d",
+            "outputFile":"output/CustomersSQLAll",
+            "description":"PDF of the paginated report from direct SQL",
+            "instances":5,
+            "enabled":true,
+            "body":{
+                "format":"PDF",
+                "paginatedReportConfiguration":{
+                }
+            }
+        },
+        {
+            "workspaceId":"a4a82203-3a5b-41eb-8144-7ef8d604b317",
+            "reportId":"3a261b84-6ca2-4ca3-9d0d-48b868c8dc9d",
+            "outputFile":"output/CustomersSQL",
+            "description":"PDF of the paginated report from direct SQL AR/NE",
+            "instances":2,
+            "enabled":true,
+            "body":{
+                "format":"PDF",
+                "paginatedReportConfiguration":{
+                    "parameterValues":[
+                        {"name": "StateCode", "value": "AR"},
+                        {"name": "StateCode", "value": "NE"}
+                    ]
+                }
+            }
+        },
+        {
+            "workspaceId":"a4a82203-3a5b-41eb-8144-7ef8d604b317",
+            "reportId":"e5f9f2ab-4ebc-45f4-a99d-462fe71e6983",
+            "outputFile":"output/CustomersDS_ALL",
+            "description":"PDF of the paginated report from DS",
+            "instances":3,
+            "enabled":true,
+            "body":{
+                "format":"PDF",
+                "paginatedReportConfiguration":{
+                }
+            }
+        },
+        {
+            "workspaceId":"a4a82203-3a5b-41eb-8144-7ef8d604b317",
+            "reportId":"e5f9f2ab-4ebc-45f4-a99d-462fe71e6983",
+            "outputFile":"output/CustomersDS",
+            "description":"PDF of the paginated report from DS AR/NE",
+            "instances":1,
+            "enabled":true,
+            "body":{
+                "format":"PDF",
+                "paginatedReportConfiguration":{
+                    "parameterValues":[
+                        {"name": "CustomerStateCode", "value": "AR"},
+                        {"name": "CustomerStateCode", "value": "NE"}
+                    ]
+                }
+            }
+        },
+        {
+            "workspaceId":"a4a82203-3a5b-41eb-8144-7ef8d604b317",
+            "reportId":"e5f9f2ab-4ebc-45f4-a99d-462fe71e6983",
+            "outputFile":"output/CustomersDS_MNNY",
+            "description":"PDF of the paginated report from DS MN/NY",
+            "instances":1,
+            "enabled":true,
+            "body":{
+                "format":"PDF",
+                "paginatedReportConfiguration":{
+                    "parameterValues":[
+                        {"name": "CustomerStateCode", "value": "MN"},
+                        {"name": "CustomerStateCode", "value": "NY"}
+                    ]
+                }
+            }
+        },        
+        {
+            "workspaceId":"a4a82203-3a5b-41eb-8144-7ef8d604b317",
+            "reportId":"e5f9f2ab-4ebc-45f4-a99d-462fe71e6983",
+            "outputFile":"output/CustomersDS_CACO",
+            "description":"PDF of the paginated report from DS CA/CO",
+            "instances":1,
+            "enabled":true,
+            "body":{
+                "format":"PDF",
+                "paginatedReportConfiguration":{
+                    "parameterValues":[
+                        {"name": "CustomerStateCode", "value": "CA"},
+                        {"name": "CustomerStateCode", "value": "CO"}
+                    ]
+                }
+            }
+        },   
+        {
+            "workspaceId":"a4a82203-3a5b-41eb-8144-7ef8d604b317",
+            "reportId":"0a1aabfc-56fc-419a-97c3-8734a2df981a",
+            "outputFile":"output/CustomerMap1PageFiltered",
+            "description":"Generate the one page",
+            "instances":3,
+            "enabled":true,
+            "body":{
+                "format":"PNG",
+                "powerBIReportConfiguration":{
+                    "settings":{"includeHiddenPages":false,"locale":"en-us"},
+                    "reportLevelFilters":[
+                        {
+                            "filter":"State/State in ('AR','NE')"
+                        }
+                    ],
+                    "pages":[{"pageName":"ReportSection"}]
+                }
+            }
+        },
+        {
+            "workspaceId":"a4a82203-3a5b-41eb-8144-7ef8d604b317",
+            "reportId":"0a1aabfc-56fc-419a-97c3-8734a2df981a",
+            "outputFile":"output/CustomerMapWithHidden",
+            "description":"This will generate a ZIP because there is a hidden page or more than one page",
+            "instances":2,
+            "enabled":true,
+            "body":{
+                "format":"PNG",
+                "powerBIReportConfiguration":{
+                    "settings":{"includeHiddenPages":true,"locale":"en-us"}
+                }
+            }
+        }
+    ]
+}
