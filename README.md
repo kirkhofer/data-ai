@@ -21,6 +21,25 @@ Have need to bulk test how a capacity would be impacted by a bunch of requests r
 1. Run the `pbi-export-tester.ps1`
     - This will install the Power BI modules if you don't already have them
 
+## Power BI Report Launcher
+This code is based off of what MS did with the capacity tester I just made it work with paginated instead
+
+> NOTE: You need a Power BI Capacity (Either Premium (P SKU) or Embedded (A SKU))
+> NOTE: This currently only works with Paginated as it was my main focus
+
+1. Clone or fork this repo
+    - `git clone https://github.com/kirkhofer/data-ai.git`
+1. Edit the `powerbi/pbi-export-tester.json` to setup your own configuration
+    - My example has some simple reports and parameters to test
+    - NOTE: I plan to add the code for SQL and the report files (RDL and PBIX) soon
+1. Run the `powerbi/launch-reports.ps1`
+    - This will install the Power BI modules if you don't already have them
+    - You can use multiple tokens so have multiple user names and passwords
+        - If you don't, you will get errors:
+            - Error 1: You have exceeded the amount of requests allowed in the current time frame and further requests will fail
+            - Error 2: The concurrent paginated operation count for your capacity has reached the maximum limit. Please reduce the number of concurrent paginated renders, subscriptions, and export api requests within your capacity and try again later, or contact your admin
+
+
 ## Pause Embed Capacity
 I test embed frequently and it charges by the hour. I am cheap and frequently forget to "pause" the service and that can add up. I wrote a very simple pause script to enable in a Automation Account.
 

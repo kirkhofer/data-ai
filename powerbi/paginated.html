@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: 'Segoe UI';            
+        }
+    </style>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <!--JS libraries-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/Microsoft/PowerBI-JavaScript/master/dist/powerbi.min.js" type="text/javascript"></script>
+    
+    <script>
+
+        var PBIEtoken = "##TOKEN##";
+
+        var embedUrl = '##EMBEDURL##';
+        
+        //TODO: adjust this value in the JSON file based on the complexity of your report; helps free up clogged browser resources
+        // var sessionRestart = JSON.parse(reportParameters).sessionRestart; //NOTE: added to address hard to identify long-running session memory leak
+        var sessionRestart=100;
+
+        var reportId = GetQSParam("reportId", embedUrl);
+        //preserving total report render count to support session restart flow
+        var loadCounter = sessionStorage.getItem('reloadCounter') === null ? 0 : sessionStorage.getItem('reloadCounter');
+
+        var errorTracker = "";
+       
+        var report;
+
+        //added by SergeiG 5/4/2018 to embed a report
+        function EmbedReport() {
+
+            if(errorTracker.length != 0) return;
+
+            if(report!=undefined) report.off("rendered");
+
+            // Get models (models contains enums)
+            var models = window['powerbi-client'].models;
+            
+            //incrementing filter value; restarting if hit numeric filter max
+            //TODO: adjust value for your specific filter range
+            // filterValue = filterValue < filterMax ? ++filterValue : filterStart;            
+
+            // Embed configuration is used to describe what and how to embed
+            // This object is used when calling powerbi.embed
+            // It can also include settings and options such as filters
+            // See java script documentation on GitHub for settings value details
+            var config = {
+                    type: 'report',
+                    tokenType: models.TokenType.Aad,
+                    accessToken: PBIEtoken,
+                    embedUrl: embedUrl,
+                    id: reportId,
+                    parameterValues: ##FILTERS##,
+                    settings: {
+                        filterPaneEnabled: true,
+                        navContentPaneEnabled: true                    
+                    }
+                };
+
+            // Embed the report within the div element                        
+            report = powerbi.embed(embedDiv, config);          
+
+            //handling report load error
+            report.on("error", function (event) {
+                var divCounter = document.getElementById('LoadReportCounter');
+                var currentTime = new Date().toTimeString();
+                divCounter.innerHTML = divCounter.innerHTML
+                    + " [Error at " + currentTime + "] "
+                    + event.detail.detailedMessage + " "
+                    + event.detail.errorCode;
+
+                report.off("error");
+                //setting error tracker to stop the execution
+                errorTracker = event.detail.message;
+            });           
+
+            report.on("rendered",EmbedReport);
+
+            //display report URL           
+            var taInfo = document.getElementById('ReportURL');
+            taInfo.value = embedUrl;
+
+            //display counter            
+            loadCounter++;
+
+            var divCounter = document.getElementById('LoadReportCounter');
+            divCounter.innerHTML = loadCounter;   
+
+            //NOTE: added 5/25/19 to see if helps address session memory leak issue
+            if((loadCounter % sessionRestart) === 0) {
+                sessionStorage.setItem('reloadCounter',loadCounter);                
+                location.reload(false);
+            };           
+        } 
+
+        //NOTE: can use report.reload() or report.refresh()
+               
+        //REGION: helper functions
+        //NOTE: helper function to extract qs parameter by name
+        function GetQSParam (name,url) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+                .exec(url);
+            if (results == null) {
+                return 0;
+            }
+            return results[1] || 0;
+        }
+
+        //END REGION: helper functions
+
+    </script>
+
+</head>
+<body>
+    <div id="LoadReportCounter">0</div>
+    <div id="InfoMessage" style="font-weight:bolder;">Report URL and AAD token:</div>
+    <textarea id="ReportURL" wrap="soft" rows="3" readonly style="width:99%;resize:vertical;"></textarea>
+    <textarea id="UserName" wrap="soft" rows="1" readonly style="width:99%;resize:vertical;">##USERNAME##</textarea>
+    <hr style="width:99%;" />
+    <div id="embedDiv" style="height: 600px; width: 100%; max-width: 1000px;" ></div>
+
+</body>
+<script>
+
+    //NOTE: modified 5/20/19 to address browser flooding when running refresh on timer
+    //kicking off report refresh loop based on report render event, i.e., not before 
+    //full render cycle completion as may be the case with timer
+    if(report==undefined) EmbedReport();  
+
+</script>
+</html>
