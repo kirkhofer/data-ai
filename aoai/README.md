@@ -82,3 +82,23 @@ This solution is in Python and requires several things to get up and running on 
         driver="ODBC Driver 18 for SQL Server"
         ```
 - Launch the application: `streamlit run azsqlnlp.py`
+### Example
+Example using the query: `How many sales for 2013?` against the AdventureWorksDW
+> Notice the differences between the models
+
+![input](img/sample-query.png)
+
+Completion result:
+
+![completion](img/completion.png)
+
+Chat Completion result:
+
+![completion](img/chat-completion.png)
+
+REST API result:
+
+![completion](img/rest-completion.png)
+
+Click on the "Details" to see the prompt and the response
+
