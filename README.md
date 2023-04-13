@@ -7,6 +7,11 @@ Repo to share things I have learned over my many years of programming and data e
 - PowerShell Core (Not Windows PowerShell)
 - Windows: Running on WSL (Windows Subsystem for Linux)
 
+# Azure OpenAI
+This is all the buzz as of late and I am quite impressed with what we are able to do with it. I have included an initial script in my [aoai](aoai) folder to review. This includes a couple of examples:
+- Use NLP to query a Azure SQL database
+- Use PowerShell to test a ton of models and examples
+
 # Power BI
 I have used Power BI since it came out and also used Crystal Reports and SQL Server Reporting Services for a long time. Sharing some knowledge here to help others.
 ## Power BI Export Tester
