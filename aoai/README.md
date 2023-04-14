@@ -61,6 +61,9 @@ Samples include:
 - Hit the Bing service and create a "smart" search like the chat in Bing
 - Uses the search index from this awesome solution for [Azure Search OpenAI Demo](https://github.com/Azure-Samples/azure-search-openai-demo)
 
+## Azure OpenAI Python Notebook
+Several examples that run through a more python world of code
+
 ## NLP with Azure SQL using OpenAI
 This solution is in Python and requires several things to get up and running on WSL/Ubuntu:
 - Install the SQL driver for Linux
