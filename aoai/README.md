@@ -15,8 +15,8 @@ Several assumptions on this part here:
     - `text-davinci-003`
 1. Optional: Search Service
     - With Semantic search enabled
-1. Optional: Bing Search
-1. Optional: SQL Database either local or in Azure
+1. Optional: [Bing Search](#bing-it)
+1. Optional: [SQL Database either local or in Azure](#nlp-with-azure-sql-using-openai)
 1. `.env` config needed for python and PowerShell
     ```text
     AOAI_NAME={Name of the resource in azure}
@@ -83,6 +83,7 @@ This solution is in Python and requires several things to get up and running on 
         user="sa"
         pwd="{whatever this is}"
         driver="ODBC Driver 18 for SQL Server"
+
         ```
 - Launch the application: `streamlit run azsqlnlp.py`
 ### Example
@@ -109,3 +110,15 @@ Click on the "Details" to see the prompt and the response
 This solution using the Bing Search API to create a "smart" search like the chat in Bing and the Azure Search OpenAI to summarize and return results
 
 Uses Streamlit, Bing Search and Azure OpenAI
+
+Add the following to the `.streamlit\secrets.toml` file
+```text
+[bing]
+key="{Bing key}"
+endpoint="https://api.bing.microsoft.com/v7.0/search"
+```
+
+### Example: Specific Search
+Enter in a website like `learn.microsoft.com/en-us/azure` (NOTE: You can only go two levels deep)
+
+Search for something and see results only for that specific area on the internet
