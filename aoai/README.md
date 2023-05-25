@@ -105,3 +105,7 @@ REST API result:
 
 Click on the "Details" to see the prompt and the response
 
+## Bing It
+This solution using the Bing Search API to create a "smart" search like the chat in Bing and the Azure Search OpenAI to summarize and return results
+
+Uses Streamlit, Bing Search and Azure OpenAI
