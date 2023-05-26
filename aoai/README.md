@@ -37,6 +37,23 @@ Several assumptions on this part here:
     ```
 1. `.streamlit\secrets.toml` needed for streamlit
 
+## Load Balance with Azure OpenAI and 429 RateLimit
+- [Learn streaming with the endpoints](https://github.com/avrabyt/OpenAI-Streamlit-YouTube/blob/451de7a5b9b2cfcd55ff828e0ddb213f2274cf8e/Stream-Argument/app.py)
+- At minimum create the environment variables
+    - Set the `OPENAI_API_BASE` and the `OPENAI_API_KEY` environment variables at minimum
+- OR: Create a `json.env` file with the content like below
+    ```json
+    [
+        {"endpoint":"https://openairesource1.openai.azure.com/","key":"999aaa9999"},
+        {"endpoint":"https://openairesource2.openai.azure.com/","key":"999aaa9999"}
+    ]
+    ```
+- Launch `chat.py` with streamlit `streamlit run chat.py`
+- Retry over and over against an interface and it will automatically load balance to another endpoint
+
+This error shows two tries and it switches from one endpoint to another without the user even knowing
+![See the image here](img/balancer-429.png)
+
 ## PowerShell with REST API
 This is a big [script](aoai.ps1) of goodness. Run it (F5) and then just run the same sections later in the script after the `return`
 

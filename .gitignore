@@ -1,3 +1,4 @@
 powerbi/output
 .streamlit/
 **/*.env
+__pycache__/
