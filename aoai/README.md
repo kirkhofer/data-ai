@@ -139,3 +139,17 @@ endpoint="https://api.bing.microsoft.com/v7.0/search"
 Enter in a website like `learn.microsoft.com/en-us/azure` (NOTE: You can only go two levels deep)
 
 Search for something and see results only for that specific area on the internet
+
+## Caption Cam
+This solution bring together a photo and Custom Vision 4.0 to turn a picture (from your web cam) into a text description
+
+> NOTE: This requires a Cognitive Services resource. Why is this in the aoai folder? Just wait...DALL-E being added
+
+<img src="img/caption-cam.png" alt="Sample Caption Cam" width="512"/>
+
+Add the following to the `.streamlit\secrets.toml` file
+```text
+[vision]
+key="{Cog Services key}"
+endpoint="https://{resource}.cognitiveservices.azure.com/"
+```
