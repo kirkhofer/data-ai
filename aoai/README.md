@@ -141,7 +141,7 @@ Enter in a website like `learn.microsoft.com/en-us/azure` (NOTE: You can only go
 Search for something and see results only for that specific area on the internet
 
 ## Caption Cam
-This solution bring together a photo and Custom Vision 4.0 to turn a picture (from your web cam) into a text description
+This solution bring together a photo and Computer Vision 4.0 to turn a picture (from your web cam) into a text description
 
 > NOTE: This requires a Cognitive Services resource
 
