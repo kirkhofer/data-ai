@@ -143,7 +143,7 @@ Search for something and see results only for that specific area on the internet
 ## Caption Cam
 This solution bring together a photo and Custom Vision 4.0 to turn a picture (from your web cam) into a text description
 
-> NOTE: This requires a Cognitive Services resource. Why is this in the aoai folder? Just wait...DALL-E being added
+> NOTE: This requires a Cognitive Services resource
 
 <img src="img/caption-cam.png" alt="Sample Caption Cam" width="512"/>
 
@@ -153,3 +153,8 @@ Add the following to the `.streamlit\secrets.toml` file
 key="{Cog Services key}"
 endpoint="https://{resource}.cognitiveservices.azure.com/"
 ```
+
+**Bonus: DALL-E**
+If you really want to see this and have it enabled on your Azure OpenAI subscription, select "Yes".
+
+> NOTE: Faces are very odd

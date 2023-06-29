@@ -2,3 +2,4 @@ powerbi/output
 .streamlit/
 **/*.env
 __pycache__/
+aoai/*.jpg
