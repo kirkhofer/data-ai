@@ -1,6 +1,17 @@
 # Azure OpenAI Solutions
 Will showcase several options here for different approaches
 
+TLDR:
+- Get an [Azure OpenAI subscription](#azure-openai-subscription)
+- Examples:
+    - [429 errors](#load-balance-with-azure-openai-and-429-ratelimit) ([chat.py](chat.py))
+    - [PowerShell examples with REST API](#powershell-with-rest-api) ([aoai.ps1](aoai.ps1))
+    - [AOAI Notebook Examples](#azure-openai-python-notebook) ([aoai.ipynb](aoai.ipynb))
+    - [NLP with Azure SQL using OpenAI](#nlp-with-azure-sql-using-openai) ([azsqlnlp.py](azsqlnlp.py))
+    - [BingIt: Search using Bing](#bing-it) ([bingit.py](bingit.py))
+    - [Caption Cam](#caption-cam) ([caption-cam.py](caption-cam.py))
+    - [Chat Bot](#chat-bot) ([chatbot.py](chatbot.py))
+
 <!-- [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=599293758&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json&location=WestUs2) -->
 
 ## Azure OpenAI Subscription
@@ -37,7 +48,7 @@ Several assumptions on this part here:
     ```
 1. `.streamlit\secrets.toml` needed for streamlit
 
-## Load Balance with Azure OpenAI and 429 RateLimit
+# Load Balance with Azure OpenAI and 429 RateLimit
 - [Learn streaming with the endpoints](https://github.com/avrabyt/OpenAI-Streamlit-YouTube/blob/451de7a5b9b2cfcd55ff828e0ddb213f2274cf8e/Stream-Argument/app.py)
 - At minimum create the environment variables
     - Set the `OPENAI_API_BASE` and the `OPENAI_API_KEY` environment variables at minimum
@@ -54,7 +65,7 @@ Several assumptions on this part here:
 This error shows two tries and it switches from one endpoint to another without the user even knowing
 ![See the image here](img/balancer-429.png)
 
-## PowerShell with REST API
+# PowerShell with REST API
 This is a big [script](aoai.ps1) of goodness. Run it (F5) and then just run the same sections later in the script after the `return`
 
 Must have:
@@ -78,11 +89,11 @@ Samples include:
 - Hit the Bing service and create a "smart" search like the chat in Bing
 - Uses the search index from this awesome solution for [Azure Search OpenAI Demo](https://github.com/Azure-Samples/azure-search-openai-demo)
 
-## Azure OpenAI Python Notebook
-Several examples that run through a more python world of code
+# Azure OpenAI Python Notebook
+Several [examples](aoai.ipynb) that run through a more python world of code
 
-## NLP with Azure SQL using OpenAI
-This solution is in Python and requires several things to get up and running on WSL/Ubuntu:
+# NLP with Azure SQL using OpenAI
+[This](azsqlnlp.py) solution is in Python and requires several things to get up and running on WSL/Ubuntu:
 - Install the SQL driver for Linux
 - Install the requirments: `pip install -r requirements.txt`
 - Create a config file here `.streamlit\secrets.toml`
@@ -103,7 +114,7 @@ This solution is in Python and requires several things to get up and running on 
 
         ```
 - Launch the application: `streamlit run azsqlnlp.py`
-### Example
+## Example
 Example using the query: `How many sales for 2013?` against the AdventureWorksDW
 > Notice the differences between the models
 
@@ -123,8 +134,8 @@ REST API result:
 
 Click on the "Details" to see the prompt and the response
 
-## Bing It
-This solution using the Bing Search API to create a "smart" search like the chat in Bing and the Azure Search OpenAI to summarize and return results
+# Bing It
+[This](bingit.py) solution using the Bing Search API to create a "smart" search like the chat in Bing and the Azure Search OpenAI to summarize and return results
 
 Uses Streamlit, Bing Search and Azure OpenAI
 
@@ -135,13 +146,13 @@ key="{Bing key}"
 endpoint="https://api.bing.microsoft.com/v7.0/search"
 ```
 
-### Example: Specific Search
+## Example: Specific Search
 Enter in a website like `learn.microsoft.com/en-us/azure` (NOTE: You can only go two levels deep)
 
 Search for something and see results only for that specific area on the internet
 
-## Caption Cam
-This solution bring together a photo and Computer Vision 4.0 to turn a picture (from your web cam) into a text description
+# Caption Cam
+[This](caption-cam.py) solution bring together a photo and Computer Vision 4.0 to turn a picture (from your web cam) into a text description
 
 > NOTE: This requires a Cognitive Services resource
 
@@ -158,3 +169,9 @@ endpoint="https://{resource}.cognitiveservices.azure.com/"
 If you really want to see this and have it enabled on your Azure OpenAI subscription, select "Yes".
 
 > NOTE: Faces are very odd
+
+# Chat Bot
+[This](chatbot.py) is a simple chatbot using the new features in Streamlit to look more like an actual chat. This sample gives you a config for the System message as well as where your sources are. You can then get a list of deployments and select the one you want to use to chat with.
+
+![Alt text](img/chatbot-settings.png)
+![Alt text](img/chatbot.png)
