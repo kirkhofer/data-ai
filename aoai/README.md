@@ -21,6 +21,20 @@
     - [Quota](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quotas-limits)
     - FYI: Look at the helper in here and retry logic. You man consider a load balancer and other options in front of the endpoints
 
+## References
+- [Chat on your data using Cognitive Search](https://github.com/Azure-Samples/azure-search-openai-demo/)
+    - This is the most requested feature
+    - Do this first with prompt engineering before fine tuning
+- [Prompt Engineering](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions)
+    - This is so important!
+    - System message
+    - Treat the models like they are children. "Do this, don't do this"
+    - Embed your "content" in the `system` prompt and then ask questions about it
+    - Maintain history for chat
+    - Use `tokenizer` to limit your prompt sizes
+    - Userstand the difference between `prompt` and `completion`
+- [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
+
 # Azure OpenAI Solutions
 Will showcase several options here for different approaches
 
