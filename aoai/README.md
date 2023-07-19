@@ -1,3 +1,26 @@
+# Getting Started with Azure OpenAI
+1. Request to get Azure OpenAI enabled on your subscription
+    - [Request Access Link](https://aka.ms/oai/access)
+    - You will need your subscription id(s)
+    - For quick access, leave out DALL-E
+        - UPDATE: This is available now but do it on a separate request
+1. Create an `Azure OpenAI` resource in your subscription
+    > NOTE: Certain models are only available in certain regions/locations [💡Model Availability](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability)
+1. Start to use the Azure OpenAI Studio [here](https://oai.azure.com/)
+1. Play around
+    - Get started with Completion or Chat (most popular) options
+    - Use the APIs to call with REST, Python or whatever flavor you like [ChatGPT Quickstart](https://learn.microsoft.com/en-us/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line&pivots=programming-language-studio)
+        - All you need is an endpoint (like https://{your-resource-name}.openai.azure.com/) and a key (alpha numeric)
+    - [OpenAI Samples (GitHub)](https://github.com/openai/openai-cookbook)
+    - [OpenAI Examples](https://platform.openai.com/examples)
+    - [Training: Explore Azure OpenAI](https://learn.microsoft.com/en-us/training/modules/explore-azure-openai)
+1. Need GPT4? 
+    - Get on the list [here](https://aka.ms/oai/get-gpt4)
+    - Try to do as much as you can with GPT 35 Turbo first
+1. Understand Quotas and how to get around them
+    - [Quota](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quotas-limits)
+    - FYI: Look at the helper in here and retry logic. You man consider a load balancer and other options in front of the endpoints
+
 # Azure OpenAI Solutions
 Will showcase several options here for different approaches
 
