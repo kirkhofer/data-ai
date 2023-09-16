@@ -3,3 +3,4 @@ powerbi/output
 **/*.env
 __pycache__/
 aoai/*.jpg
+aoai/*.wav
