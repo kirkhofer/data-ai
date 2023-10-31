@@ -2,8 +2,6 @@
 1. Request to get Azure OpenAI enabled on your subscription
     - [Request Access Link](https://aka.ms/oai/access)
     - You will need your subscription id(s)
-    - For quick access, leave out DALL-E
-        - UPDATE: This is available now but do it on a separate request
 1. Create an `Azure OpenAI` resource in your subscription
     > NOTE: Certain models are only available in certain regions/locations [💡Model Availability](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability)
 1. Start to use the Azure OpenAI Studio [here](https://oai.azure.com/)
@@ -14,9 +12,7 @@
     - [OpenAI Samples (GitHub)](https://github.com/openai/openai-cookbook)
     - [OpenAI Examples](https://platform.openai.com/examples)
     - [Training: Explore Azure OpenAI](https://learn.microsoft.com/en-us/training/modules/explore-azure-openai)
-1. Need GPT4? 
-    - Get on the list [here](https://aka.ms/oai/get-gpt4)
-    - Try to do as much as you can with GPT 35 Turbo first
+1. Need GPT4? It is included but limited in capacity
 1. Understand Quotas and how to get around them
     - [Quota](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quotas-limits)
     - FYI: Look at the helper in here and retry logic. You man consider a load balancer and other options in front of the endpoints
@@ -42,6 +38,7 @@ TLDR:
 - Get an [Azure OpenAI subscription](#azure-openai-subscription)
 - Examples:
     - [429 errors](#load-balance-with-azure-openai-and-429-ratelimit) ([chat.py](chat.py))
+    - [Load Tester](#load-tester) ([load-tester.ps1](load-tester.ps1))
     - [PowerShell examples with REST API](#powershell-with-rest-api) ([aoai.ps1](aoai.ps1))
     - [AOAI Notebook Examples](#azure-openai-python-notebook) ([aoai.ipynb](aoai.ipynb))
     - [NLP with Azure SQL using OpenAI](#nlp-with-azure-sql-using-openai) ([azsqlnlp.py](azsqlnlp.py))
@@ -55,7 +52,6 @@ TLDR:
 Several assumptions on this part here:
 1. Azure OpenAI subscription
     - Request here: https://aka.ms/oai/access 
-    > NOTE: To get access soon, do NOT include DALL-E
 1. Your deployment names are like the following
     - `gpt-35-turbo`
     - `code-davinci-002`
@@ -101,6 +97,20 @@ Several assumptions on this part here:
 
 This error shows two tries and it switches from one endpoint to another without the user even knowing
 ![See the image here](img/balancer-429.png)
+
+# Load Tester
+- Load tester for Azure OpenAI written in PowerShell
+- Create a `json.env` file with the content like below
+    ```json
+    [
+        {"endpoint":"https://openairesource1.openai.azure.com/","key":"999aaa9999"},
+        {"endpoint":"https://openairesource2.openai.azure.com/","key":"999aaa9999"}
+    ]
+    ```
+- Hammers in multi-threaded mode
+- Run it `. '/load-tester.ps1' -MaxThreads 10 -MaxItems 10`
+    - See the responses on the outputs with summaries and what actually happened
+- Want more? Dig into the `$sync.(1).Results` and other attributes
 
 # PowerShell with REST API
 This is a big [script](aoai.ps1) of goodness. Run it (F5) and then just run the same sections later in the script after the `return`
