@@ -1,5 +1,6 @@
 # Borrowed some design from here and added some twists for 429 errors
 # https://github.com/avrabyt/OpenAI-Streamlit-YouTube/blob/451de7a5b9b2cfcd55ff828e0ddb213f2274cf8e/Stream-Argument/app.py
+# Still need this import for the RateLimitError
 import openai
 from openai import AzureOpenAI
 import streamlit as st

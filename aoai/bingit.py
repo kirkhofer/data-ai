@@ -2,12 +2,9 @@ import streamlit as st
 import requests
 import json
 import pandas as pd
-import openai
+from openai import AzureOpenAI
 
-openai.api_type = "azure"
-openai.api_base = st.secrets.aoai.base
-openai.api_key = st.secrets.aoai.key
-openai.api_version = st.secrets.aoai.previewversion
+client = AzureOpenAI(azure_endpoint=st.secrets.aoai.base, api_key=st.secrets.aoai.key, api_version=st.secrets.aoai.previewversion)
 
 def bing_web_search(subscription_key, bing_subscription_url, query,site=None):
     # set parameters
@@ -58,8 +55,8 @@ def runQuery():
         messages.append({"role":"user","content":st.session_state.txtSearch})
         
 
-        response = openai.ChatCompletion.create(
-            engine="gpt-35-turbo", 
+        response = client.chat.completions.create(
+            model="gpt-35-turbo", 
             messages = messages,
             temperature=0,
             max_tokens=1500
@@ -67,7 +64,7 @@ def runQuery():
         st.markdown("## Question")
         st.markdown(f"{st.session_state.txtSearch}")
         st.markdown("## Answer")
-        st.markdown(f"{response['choices'][0]['message']['content']}")
+        st.markdown(f"{response.choices[0].message.content}")
 
         with st.expander("See more info"):
             st.write(df[['url','snippet']])

@@ -3,7 +3,8 @@ Using the https://docs.streamlit.io/knowledge-base/tutorials/build-conversationa
 tutorial as a starting point, this script will create a chatbot that uses the Azure OpenAI service to respond to user input.
 '''
 import streamlit as st
-import openai
+from openai import AzureOpenAI
+import requests
 import os
 from dotenv import load_dotenv
 
@@ -51,11 +52,11 @@ def saveOpenAI():
     st.session_state.messages[0]['content'] = st.session_state.system
 
     # Create a list of deployments
-    openai.api_type = "azure"
-    openai.api_version = '2022-12-01'
-    openai.api_base = f"https://{st.session_state.aoairegion}.api.cognitive.microsoft.com/"
-    openai.api_key = st.session_state.aoaikey
-    response = openai.Deployment.list()
+    # As of 1.X you cannot easily list deployments so we have to do this with the REST API
+    headers={"Content-Type":"application/json","api-key":st.session_state.aoaikey}
+    uri = f"https://{st.session_state.aoairegion}.api.cognitive.microsoft.com/openai/deployments?api-version=2022-12-01"    
+    request = requests.get(uri, headers=headers)
+    response = request.json()
     st.session_state['deployments'] = []
     for i,dep in enumerate(response['data']):
         st.session_state['deployments'].append(dep['id'])
@@ -92,13 +93,10 @@ if len(st.session_state.deployments) > 0:
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             full_response = ""
-            openai.api_type="azure"
-            openai.api_base = f"https://{st.session_state.aoairegion}.api.cognitive.microsoft.com/"
-            openai.api_key = st.session_state.aoaikey
-            openai.api_version = st.session_state.aoaiversion
+            client = AzureOpenAI(api_key=st.session_state.aoaikey, azure_endpoint=f"https://{st.session_state.aoairegion}.api.cognitive.microsoft.com/", api_version=st.session_state.aoaiversion)
 
-            for response in openai.ChatCompletion.create(
-                engine=st.session_state.deployment,
+            for response in client.chat.completions.create(
+                model=st.session_state.deployment,
                 messages=[
                     {"role": m["role"], "content": m["content"]}
                     for m in st.session_state.messages
@@ -107,7 +105,7 @@ if len(st.session_state.deployments) > 0:
                 max_tokens=int(st.session_state.tokens),
                 stream=True,
             ):
-                full_response += response.choices[0].delta.get("content", "")
+                full_response += (response.choices[0].delta.content or "")
                 message_placeholder.markdown(full_response + "▌")
             message_placeholder.markdown(full_response)
         st.session_state.messages.append({"role": "assistant", "content": full_response})

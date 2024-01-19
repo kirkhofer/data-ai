@@ -1,12 +1,10 @@
 import streamlit as st 
 import pyodbc
-import openai
+from openai import AzureOpenAI
 import requests
 import json
 
-openai.api_type = "azure"
-openai.api_base = st.secrets.aoai.base
-openai.api_key = st.secrets.aoai.key
+client = AzureOpenAI(azure_endpoint=st.secrets.aoai.base, api_key=st.secrets.aoai.key)
 
 server = st.secrets.sql.server
 database = st.secrets.sql.db
@@ -52,23 +50,23 @@ def get_text():
 def Get_ChatCompletion(prompt,model="gpt-35-turbo",temperature=0.0):
 
     st.session_state["prompt"]=prompt
-    openai.api_version=st.secrets.aoai.previewversion
-    response = openai.ChatCompletion.create(
-        engine=model, 
+    client.api_version=st.secrets.aoai.version
+    response = client.chat.completions.create(
+        model=model, 
         messages = prompt,
         temperature=temperature,
         max_tokens=1024
     )
     st.session_state["response"]=response
-    llm_output = response['choices'][0]['message']['content']
+    llm_output = response.choices[0].message.content
     return llm_output
 
 def Get_Completion(prompt,model="code-davinci-002"):
+    client.api_version=st.secrets.aoai.version
 
-    openai.api_version=st.secrets.aoai.version
     st.session_state["prompt"]=prompt
-    response = openai.Completion.create(
-        engine=model, 
+    response = client.completions.create(
+        model=model, 
         prompt = prompt,
         temperature=0,
         max_tokens=250,
