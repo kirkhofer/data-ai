@@ -1,6 +1,5 @@
 import os
-import json
-import openai
+import requests
 
 class AOAIBalancer:
     endpoints=[]
@@ -13,13 +12,13 @@ class AOAIBalancer:
         
         self.endpoints=endpoints
 
-        openai.api_type = 'azure'
         for endpoint in self.endpoints:
             print(f"endpoint: {endpoint}")
-            openai.api_key = endpoint['key']
-            openai.api_base = endpoint['endpoint'] 
-            openai.api_version = '2022-12-01'
-            response = openai.Deployment.list()
+            # As of 1.X you cannot easily list deployments so we have to do this with the REST API
+            headers={"Content-Type":"application/json","api-key":endpoint['key']}
+            uri = f"{endpoint['endpoint'] }/openai/deployments?api-version=2022-12-01"    
+            request = requests.get(uri, headers=headers)
+            response = request.json()
 
             for dep in response['data']:
                 self.models.append({"endpoint":endpoint['endpoint'],"key":endpoint['key'],"model":dep['model'],"deployment":dep['id']})

@@ -1,6 +1,7 @@
 # Borrowed some design from here and added some twists for 429 errors
 # https://github.com/avrabyt/OpenAI-Streamlit-YouTube/blob/451de7a5b9b2cfcd55ff828e0ddb213f2274cf8e/Stream-Argument/app.py
 import openai
+from openai import AzureOpenAI
 import streamlit as st
 # from streamlit_pills import pills
 import os  
@@ -11,9 +12,6 @@ from dotenv import load_dotenv
 from balancer import AOAIBalancer
 
 load_dotenv()
-
-# Set up OpenAI
-openai.api_type = "azure"
 
 path="json.env"
 if os.path.exists(path):
@@ -69,32 +67,30 @@ def Get_CompletionREST(prompt,max_tokens=250,temperature=0.5,model="text-davinci
                     st.write("Error",str(e))
                     st.write(line)
 
-@retry(retry=retry_if_exception_type(openai.error.RateLimitError),wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6) | stop_after_delay(5))
+@retry(retry=retry_if_exception_type(openai.RateLimitError),wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6) | stop_after_delay(5))
 def get_openai_response(prompt,max_tokens=250,temperature=0.5,model="text-davinci-003",streaming=False):
 
     env=looper.getModel(model)
-    openai.api_key=env['key']
-    openai.api_base=env['endpoint']
-    openai.api_version = "2023-03-15-preview"
+    client = AzureOpenAI(api_key=env['key'], azure_endpoint=env['endpoint'], api_version="2023-03-15-preview")
 
-    exp.write(f"Trying endpoint {openai.api_base}")
+    exp.write(f"Trying endpoint {client.base_url}")
     try:
         if streaming:
             report = []
             # Looping over the response
-            for resp in openai.Completion.create(engine=model,
+            for resp in client.Completion.create(model=model,
                                                 prompt=prompt,
                                                 max_tokens=max_tokens, 
                                                 temperature = temperature,
                                                 n=1,
                                                 stream=False):
-                report.append(resp['choices'][0]['text'])
+                report.append(resp.choices[0].text)
                 result = "".join(report).strip()
                 result = result.replace("\n", "")       
                 res_box.markdown(f'*{result}*') 
 
         else:
-            completions = openai.Completion.create(engine=model,
+            completions = client.Completion.create(model=model,
                                                 prompt=user_input,
                                                 max_tokens=max_tokens, 
                                                 temperature = temperature,
@@ -102,36 +98,33 @@ def get_openai_response(prompt,max_tokens=250,temperature=0.5,model="text-davinc
             result = completions.choices[0].text
 
             res_box.write(result)
-    except openai.error.RateLimitError as e:
+    except openai.RateLimitError as e:
         exp.error(f"OpenAI API Rate Limit Error: {e}")
         looper.incrementModel(model)
         raise e
 
-@retry(retry=retry_if_exception_type(openai.error.RateLimitError),wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6) | stop_after_delay(5))
+@retry(retry=retry_if_exception_type(openai.RateLimitError),wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6) | stop_after_delay(5))
 def get_openai_Chat(messages,max_tokens=250,temperature=0.5,model="gpt-35-turbo",streaming=False):
     env=looper.getModel(model)
-    openai.api_key=env['key']
-    openai.api_base=env['endpoint']
-    openai.api_version = "2023-03-15-preview"
+    client = AzureOpenAI(api_key=env['key'], azure_endpoint=env['endpoint'], api_version="2023-03-15-preview")
 
-    exp.write(f"Trying endpoint {openai.api_base}")
+    exp.write(f"Trying endpoint {client.base_url}")
     try:
         if streaming:
             report = []
             # Looping over the response
-            for resp in openai.ChatCompletion.create(engine=model,
+            for resp in client.chat.completions.create(model=model,
                                                 messages=messages,
                                                 max_tokens=max_tokens, 
                                                 temperature = temperature,
                                                 stream=streaming):
-                if 'content' in resp['choices'][0]['delta']:
-                    report.append(resp['choices'][0]['delta']['content'])
-                    result = "".join(report).strip()
-                    result = result.replace("\n", "")       
-                    res_box.markdown(f'*{result}*') 
+                report.append(resp.choices[0].delta or "")
+                result = "".join(report).strip()
+                result = result.replace("\n", "")       
+                res_box.markdown(f'*{result}*') 
 
         else:
-            completions = openai.ChatCompletion.create(engine=model,
+            completions = client.chat.completions.create(model=model,
                                                 messages=messages,
                                                 max_tokens=max_tokens, 
                                                 temperature = temperature,
@@ -139,7 +132,7 @@ def get_openai_Chat(messages,max_tokens=250,temperature=0.5,model="gpt-35-turbo"
             result = completions.choices[0].message.content
 
             res_box.write(result)
-    except openai.error.RateLimitError as e:
+    except openai.RateLimitError as e:
         exp.error(f"OpenAI API Rate Limit Error: {e}")
         looper.incrementModel(model)
         raise e       
