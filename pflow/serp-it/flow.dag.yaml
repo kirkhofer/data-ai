@@ -31,7 +31,7 @@ nodes:
     chat_history: ${inputs.chat_history}
     question: ${inputs.question}
     search_history: ${search_history.output}
-  connection: open_ai_connection
+  connection: serp-it-aoai
   api: chat
 - name: search_history
   type: python

@@ -1,54 +1,58 @@
-# TODO: Create a prompt flow like Bing It
+# Prompt flow
+There are so many ways to use prompt flow it is crazy. If you haven't used it, take a look at the following references and get ready to fall in love 🥰
 
-# New install
+- https://microsoft.github.io/promptflow
+- https://github.com/microsoft/promptflow
+- Watch this session from Ignite [BRK203: End-to-End AI App Development](https://www.youtube.com/watch?v=DdOylyrTOWg) and the code from [here]
+(https://github.com/microsoft/contoso-support-pf-demo)
 
-# Run streamlit app
+This only covers the basics but there are so many ways to test, evaluate and compare using variants that it would take a lot of work
 
-# Create the flow from scratch
-
+## Prerequisites
+1. Create a conda environment and install the modules needed
 ```bash
-pf flow init --flow serp-it --type chat
-
+    conda create -n pflow python=3.8
+    conda activate pflow
+    pip install promptflow promptflow-tools
 ```
 
-- Update the flow.dag.yaml
-    - Add a `search_history` node to call serp
+1. (_Optional_) Install and configure [Prompt flow for VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow) follow [Quick Start Guide](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html). (_This extension is optional but highly recommended for flow development and debugging._)
 
+# Bing it sample using prompt flow
+Prompt flow is a great way to run models and is even more amazing when it comes to code first solutions and to quickly build LLM interactions. This sample builds from my widely referenced `bing it` python solution that uses the Bing API.
 
-# Prerequisites
+New to this solution is the use of the [SERP API](https://serpapi.com) which runs to gather information from the web and then takes this content in injects it into the prompt.
+
+![serp flow](img/README/image.png)
+
+## Walkthrough
+1. The `input` takes a **question** as type `string` and a **chat_history** as type `list`
+1. `search_history` is used to call into the SERP API with the **question** 
+1. The **question** and the output from `search_history` are sent to `chat` which uses a jinga template to render the LLM prompt and call into Azure OpenAI
+1. The **answer** from the `chat` and and JSON from the `search_history` as exposed in the `output`
+
+## Prerequisites
+You will need an Azure OpenAI resource and a SERP account to run this.
+
+1. Deploy an Azure OpenAI chat model (e.g. gpt35 or any of the other gpt models). Follow the [how-to](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) for an Azure OpenAI example.
+    - Make sure to grab the endpoint and the key for the service
+1. Register for a free key at https://SerpAPI.com and grab the key from the dashboard
+    - There are so many use cases for this but we will just use the Bing search capabilities for now
+
+## Run streamlit app
+1. Clone or fork this repo
+    - `git clone https://github.com/kirkhofer/data-ai.git`
+1. (_Optional_) Create a `.env` file with the following
+    ```text
+    AOAI_ENDPOINT=https://azure-resource-name.openai.azure.com/
+    AOAI_KEY=99999999999
+    SERP_KEY=9999a2439
+    ```
+    - If you don't do this, the application will prompt for those. This just saves time and I am lazy and don't like to continually update this stuff
+1. Move into this folders `cd pflow`
 1. Install dependencies
-```bash
+    ```bash
    pip install -r requirements.txt
-```
-
-2. Install and configure [Prompt flow for VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow) follow [Quick Start Guide](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html). (_This extension is optional but highly recommended for flow development and debugging._)
-
-3. Deploy an OpenAI or Azure OpenAI chat model (e.g. gpt4 or gpt-35-turbo-16k).  Follow the [how-to](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) for an Azure OpenAI example.
-
-## Quick Start ⚡
-
-**Setup a connection for your API key**
-
-For OpenAI key, establish a connection by running the command, using the `openai.yaml` file in the `my_chatbot` folder, which stores your OpenAI key (override keys and name with --set to avoid yaml file changes):
-
-```sh
-pf connection create --file ./my_chatbot/openai.yaml --set api_key=<your_api_key> --name open_ai_connection
-```
-
-For Azure OpenAI key, establish the connection by running the command, using the `azure_openai.yaml` file:
-
-```sh
-pf connection create --file ./my_chatbot/azure_openai.yaml --set api_key=<your_api_key> api_base=<your_api_base> --name open_ai_connection
-```
-
-**Chat with your flow**
-
-In the `my_chatbot` folder, there's a `flow.dag.yaml` file that outlines the flow, including inputs/outputs, nodes,  connection, and the LLM model, etc
-
-> Note that in the `chat` node, we're using a connection named `open_ai_connection` (specified in `connection` field) and the `gpt-35-turbo` model (specified in `deployment_name` field). The deployment_name filed is to specify the OpenAI model, or the Azure OpenAI deployment resource.
-
-Interact with your chatbot by running: (press `Ctrl + C` to end the session)
-
-```sh
-pf flow test --flow ./my_chatbot --interactive
-```
+    ```
+1. Execute the Streamlit app `streamlit run serp-it.py`
+1. Enter the endpoint and keys and test it out
