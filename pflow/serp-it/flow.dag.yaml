@@ -1,0 +1,44 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  chat_history:
+    type: list
+    is_chat_history: true
+    default: []
+  question:
+    type: string
+    is_chat_input: true
+    default: When did GPT4 come out?
+outputs:
+  answer:
+    type: string
+    reference: ${chat.output}
+    is_chat_output: true
+  search_history:
+    type: string
+    reference: ${search_history.output}
+nodes:
+- name: chat
+  type: llm
+  source:
+    type: code
+    path: chat.jinja2
+  inputs:
+    deployment_name: gpt-35-turbo
+    max_tokens: 256
+    temperature: 0.7
+    chat_history: ${inputs.chat_history}
+    question: ${inputs.question}
+    search_history: ${search_history.output}
+  connection: open_ai_connection
+  api: chat
+- name: search_history
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.serpapi.SerpAPI.search
+  inputs:
+    connection: serp-it
+    engine: bing
+    query: ${inputs.question}

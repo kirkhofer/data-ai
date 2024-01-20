@@ -1,0 +1,17 @@
+system:
+You are a helpful assistant.
+
+Use the following detail:
+{% for result in search_history.organic_results %}
+{{result.snippet}}
+{% endfor %}
+
+{% for item in chat_history %}
+user:
+{{item.inputs.question}}
+assistant:
+{{item.outputs.answer}}
+{% endfor %}
+
+user:
+{{question}}
