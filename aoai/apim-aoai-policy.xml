@@ -1,0 +1,25 @@
+<policies>
+    <inbound>
+        <!--Setup the url-->
+        <include-fragment fragment-id="gpt-35-turbo-deployments" />
+        <!--Create a copy to use for all the returns-->
+        <set-variable name="backendUrl" value="@((string)context.Variables["url"])" />
+        <set-backend-service base-url="@((string)context.Variables["url"])" />
+    </inbound>
+    <backend>
+        <retry condition="@(context.Response.StatusCode == 429)" count="30" interval="4" delta="2" max-interval="20" first-fast-retry="true">
+            <!--Setup the url-->
+            <include-fragment fragment-id="gpt-35-turbo-deployments" />
+            <set-backend-service base-url="@((string)context.Variables["url"])" />
+            <forward-request buffer-request-body="true" />
+        </retry>
+    </backend>
+    <outbound>
+        <set-header name="Backend-Service-URL" exists-action="override">
+            <value>@((string)context.Variables["backendUrl"])</value>
+        </set-header>
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
