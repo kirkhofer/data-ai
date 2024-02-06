@@ -1,18 +1,6 @@
 # Updates Comping
 Revamp to add more content and fix stuff that is just now plain broken
 
-# 2024-01-28
-- 🥵 Azure API Management with Azure OpenAI retry 429 logic [here](apim.md)
-
-# 2024-01-19
-- ⚡ Balancer.py and chat.py updated to support the new Python SDK v1.0.0 and higher
-    > NOTE: Got rid of the deployment list so back to REST API for that
-- ⚡ azsqlnlp.py updated to support the new Python SDK v1.0.0 and higher
-- ⚡ chatbot.py updated to support the new Python SDK v1.0.0 and higher
-- ⚡ bingit.py updated to support the new Python SDK v1.0.0 and higher
-- ⚡ aoai.py updated to support the new Python SDK v1.0.0 and higher
-- ⚡ aoaihelper.ipynb removed `import openai` as it wasn't used (bad code)
-
 # Getting Started with Azure OpenAI
 1. Request to get Azure OpenAI enabled on your subscription
     - [Request Access Link](https://aka.ms/oai/access)
