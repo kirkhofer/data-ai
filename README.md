@@ -3,6 +3,9 @@ Repo to share things I have learned over my many years of programming and data e
 
 # Captain's Log
 
+## 2024-02-22
+- Pricing and Model variants helper [pricing](aoai/pricing.ipynb)
+
 ## 2024-02-06
 - 🆕 Assistants API notebook with a file [movie-assistant](aoai/movie-assistant.ipynb)
 
