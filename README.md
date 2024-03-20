@@ -3,6 +3,9 @@ Repo to share things I have learned over my many years of programming and data e
 
 # Captain's Log
 
+## 2024-03-20
+- Added Azure Automation script to suspend [Fabric Capacity](fabric/README.md)
+
 ## 2024-02-22
 - Pricing and Model variants helper [pricing](aoai/pricing.ipynb)
 
