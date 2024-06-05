@@ -1,0 +1,23 @@
+<policies>
+    <inbound>
+        <base />
+        <set-backend-service backend-id="aoai-lb-us" />
+        <!-- Backend Managed Identity -->
+        <authentication-managed-identity resource="https://cognitiveservices.azure.com" output-token-variable-name="managed-id-access-token" ignore-error="false" />
+        <set-header name="Authorization" exists-action="override">
+            <value>@("Bearer " + (string)context.Variables["managed-id-access-token"])</value>
+        </set-header>
+    </inbound>
+    <backend>
+        <retry condition="@(context.Response.StatusCode == 429)" count="2" interval="1" first-fast-retry="true">
+            <set-backend-service backend-id="aoai-lb-us" />
+            <forward-request buffer-request-body="true" buffer-response="false" />
+        </retry>
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
