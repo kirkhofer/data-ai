@@ -4,3 +4,5 @@ powerbi/output
 __pycache__/
 aoai/*.jpg
 aoai/*.wav
+aoai/quotas.csv
+aoai/deployments.csv
