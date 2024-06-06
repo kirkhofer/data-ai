@@ -196,7 +196,8 @@ You will want to get as much TPM as possible across regions.
     - Check the `x-ms-region: South Central US`. This is the LAST location used in the retry logic
         > So if you force it to start in `East US` this will show that it then ended up in `South Central US`
     - I included the `Ocp-Apim-Trace` as this is VERY useful to see the details of exactly what is going on. Follow the steps in the APIM documentation for enabling [Tracing](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-api-inspector)
-
+    > NOTE: You will get a `503` if all the resources in the circuit are at capacity
+    
 # Old Way
 ### Create the APIM resources
 1. Create your APIM resource
