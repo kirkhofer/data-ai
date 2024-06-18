@@ -2,6 +2,9 @@
 Repo to share things I have learned over my many years of programming and data experiences
 
 # Captain's Log
+## 2024-06-18
+- 🆕 [SQL Tester](sql/README.md#sql-tester) to validate connection pools 
+
 ## 2024-06-04
 - 🆙 Updates for APIM using the new backends and circuit breakers see [here](aoai/apim.md)
     > NOTE: This truly simplifies management and APIM manages a lot of this for you now
