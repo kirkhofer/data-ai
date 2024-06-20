@@ -1,12 +1,21 @@
-# Updates Comping
-Revamp to add more content and fix stuff that is just now plain broken
+# What is Azure OpenAI
+Azure hosts the OpenAI models. If you use OpenAI directly, you get one endpoint that routes you all around the world. Care about Data Sovereignty or high levels of security? Then you might/will need Azure OpenAI
+
+Azure OpenAI design to use a lot of TPM:
+1. Create and deploy AOAI resources in multiple Regions
+    - Think Geography here. Setup based on US, EU, APAC, etc.
+    - What agreements do you have with your customers that limit where data can traverse? Can it go outside of certain countries?
+    - Models have quota limits by Region so make sure to multiply your usage
+2. Use API Management to create a type of Load Balancer
+    - Setup and configure one per Geography
+    - Use [this](apim.md) guide to help configure
 
 # Getting Started with Azure OpenAI
 1. Request to get Azure OpenAI enabled on your subscription
     - [Request Access Link](https://aka.ms/oai/access)
     - You will need your subscription id(s)
 1. Create an `Azure OpenAI` resource in your subscription
-    > NOTE: Certain models are only available in certain regions/locations [💡Model Availability](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability)
+    > NOTE: Certain models are only available in certain regions/locations [💡Model Availability](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#standard-deployment-model-availability)
 1. Start to use the Azure OpenAI Studio [here](https://oai.azure.com/)
 1. Play around
     - Get started with Completion or Chat (most popular) options
@@ -17,7 +26,7 @@ Revamp to add more content and fix stuff that is just now plain broken
     - [Training: Explore Azure OpenAI](https://learn.microsoft.com/en-us/training/modules/explore-azure-openai)
 1. Need GPT4? It is included but limited in capacity
 1. Understand Quotas and how to get around them
-    - [Quota](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quotas-limits)
+    - [Quota](https://learn.microsoft.com/en-us/azure/ai-services/openai/quotas-limits)
     - FYI: Look at the helper in here and retry logic. You man consider a load balancer and other options in front of the endpoints
 
 ## References

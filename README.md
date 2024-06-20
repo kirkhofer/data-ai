@@ -36,6 +36,7 @@ Repo to share things I have learned over my many years of programming and data e
 # My install
 - Have a PC and a Mac (MacBook Pro mid-2012...please send me a new one)
 - VS Code
+    - Extensions: REST Client (must have)
 - PowerShell Core (Not Windows PowerShell)
 - Windows: Running on WSL (Windows Subsystem for Linux)
 
@@ -46,6 +47,8 @@ This is all the buzz as of late and I am quite impressed with what we are able t
 - Python notebook with examples and SQL generative
 
 # [Power BI](powerbi/README.md)
+
+# [SQL](sql/README.md)
 
 # Azure Data Explorer
 Have a complete [walkthrough](data-explorer/free-cluster-demo.md) using a Free Cluster (No cost) to test ADX
