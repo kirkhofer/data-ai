@@ -29,7 +29,8 @@ param(
     [double]$SleepSeconds=.5,
     [int]$MaxPoolSize=0,
     [int]$ConnectionTimeout=5,
-    [bool]$CloseConnection=$true
+    [bool]$CloseConnection=$true,
+    [string]$AppPrefix="sql-tester-"
 )
 $ErrorActionPreference = "Stop"
 
@@ -40,7 +41,8 @@ if( $null -eq (Get-AzContext) -or (-not $accessToken) -or ([DateTime]::UtcNow -g
     $token = $accessToken.Token
 }
 
-$connectionString = "Server=tcp:$ServerInstance,1433;Initial Catalog=$Database;Connection Timeout=$ConnectionTimeout" 
+$appName = "$AppPrefix$(($CloseConnection) ? 'close' : 'open')"
+$connectionString = "Server=tcp:$ServerInstance,1433;Initial Catalog=$Database;Connection Timeout=$ConnectionTimeout;Application Name=$appName" 
 if ( $MaxPoolSize -gt 0 )
 {
     $connectionString += ";Max Pool Size=$MaxPoolSize;"

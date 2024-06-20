@@ -19,3 +19,14 @@ Use this [code](sql-tester.ps1) to execute and see how a connection pool works o
     WHERE session_id <> @@SPID
     GROUP BY login_name,status;
     ```
+1. Test with `Application Name` in the SQL connection
+    ```sql
+    SELECT program_name,
+        status,
+        COUNT(session_id) AS session_count
+        ,host_name
+        ,MAX(DATEDIFF(minute,last_request_end_time,GETDATE())) AS LastRequest_Minutes
+    FROM sys.dm_exec_sessions
+    WHERE program_name LIKE 'sql-test%'
+    GROUP BY program_name,status,host_name;
+    ```
