@@ -1,3 +1,6 @@
+# Fabric APIs
+There are a bunch and not one does all so hope this little notebook helps [fabric.ipynb](fabric.ipynb)
+
 # Automate Suspend
 I use this to shut down my capacity at a certain time to avoid budget issues 😁
 
