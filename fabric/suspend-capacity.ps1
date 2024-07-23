@@ -35,7 +35,7 @@ $response = Invoke-RestMethod -uri $uri -Method Get -Headers $header -UseBasicPa
 
 Write-Output $("Status is " + $response.properties.state)
 
-if( "Succeeded" -eq $response.properties.state )
+if( "Active" -eq $response.properties.state )
 {
     Write-Output "Pausing"
     $uri = "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Fabric/capacities/$dedicatedCapacityName/suspend?api-version=2022-07-01-preview"
