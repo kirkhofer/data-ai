@@ -2,6 +2,9 @@
 Repo to share things I have learned over my many years of programming and data experiences
 
 # Captain's Log
+## 2024-08-06
+- 🆙 [SQL Tester](sql/README.md#sql-tester) added some code to output the total sessions in use
+
 ## 2024-06-25
 - 🆕 [Fabric APIs](fabric/README.md#fabric-apis) notebook and all
 
