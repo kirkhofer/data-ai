@@ -3,7 +3,7 @@ Repo to share things I have learned over my many years of programming and data e
 
 # Captain's Log
 ## 2024-08-21
-- 🆕 Notebook for [load testing](aoai/lost-test.ipynb) Azure OpenAI 
+- 🆕 Notebook for [load testing](aoai/load-tester.ipynb) Azure OpenAI 
     > NOTE: You can twist this many ways as needed 
 
 ## 2024-08-14
