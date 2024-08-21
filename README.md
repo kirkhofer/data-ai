@@ -2,6 +2,10 @@
 Repo to share things I have learned over my many years of programming and data experiences
 
 # Captain's Log
+## 2024-08-21
+- 🆕 Notebook for [load testing](aoai/lost-test.ipynb) Azure OpenAI 
+    > NOTE: You can twist this many ways as needed 
+
 ## 2024-08-14
 - 🆕 Notebook to show [capacity](aoai/capacity.ipynb) in Azure OpenAI
 
