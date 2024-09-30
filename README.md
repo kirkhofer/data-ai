@@ -2,6 +2,10 @@
 Repo to share things I have learned over my many years of programming and data experiences
 
 # Captain's Log
+## 2024-09-30
+- 🆕 Notebook for [Tropical storms](map/storm-map.ipynb) using Azure Maps
+    - I have always enjoyed creating content with weather and maps
+    - And of course we got storm "Kirk" this year! At least it is staying in the middle of the ocean
 ## 2024-08-21
 - 🆕 Notebook for [load testing](aoai/load-tester.ipynb) Azure OpenAI 
     > NOTE: You can twist this many ways as needed 
