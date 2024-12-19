@@ -2,6 +2,11 @@
 Repo to share things I have learned over my many years of programming and data experiences
 
 # Captain's Log
+## 2024-12-19 🎅🎄
+- 🆕 Azure AI Agent Service [movie-agent](aoai/movie-agent.ipynb)
+    - Can't believe it was Feb 24 when Assistants came out in Preview and is still in Preview
+    - This new service will be a product with robust features and integrate well with Copilot or your own UI
+
 ## 2024-09-30
 - 🆕 Notebook for [Tropical storms](map/storm-map.ipynb) using Azure Maps
     - I have always enjoyed creating content with weather and maps
