@@ -1,0 +1,22 @@
+---
+name: Function Tester
+description: A function tester to rule them all
+authors:
+  - Kirk Hofer
+model:
+  api: chat
+  configuration:
+    azure_deployment: gpt-4o
+    api_version: "2024-06-01"
+    azure_endpoint: ${env:AOAI_ENDPOINT}
+    api_key: ${env:AOAI_KEY}
+  parameters:
+    tools: ${file:functions-1.json}
+    tool_choice: required
+sample:
+  question: What is the weather in Boston today?
+  # question: What is the weather in Boston and Chicago today?
+  # question: What is the weather and time in Boston and Chicago today?
+---
+user:
+{{question}}

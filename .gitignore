@@ -7,3 +7,4 @@ aoai/*.wav
 aoai/quotas.csv
 aoai/deployments.csv
 local
+.vscode/

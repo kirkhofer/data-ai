@@ -1,0 +1,218 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "get_current_time",
+            "description": "Get the current time in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The location name. The pytz is used to get the timezone for that location. Location names should be in a format like America/New_York, Asia/Bangkok, Europe/London"
+                    }
+                },
+                "required": [
+                    "location"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_stock_market_data",
+            "description": "Get the stock market data for a given index",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "enum": [
+                            "S&P 500",
+                            "NASDAQ Composite",
+                            "Dow Jones Industrial Average",
+                            "Financial Times Stock Exchange 100 Index"
+                        ]
+                    }
+                },
+                "required": [
+                    "index"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "calculator",
+            "description": "A simple calculator used to perform basic arithmetic operations",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "num1": {
+                        "type": "number"
+                    },
+                    "num2": {
+                        "type": "number"
+                    },
+                    "operator": {
+                        "type": "string",
+                        "enum": [
+                            "+",
+                            "-",
+                            "*",
+                            "/",
+                            "**",
+                            "sqrt"
+                        ]
+                    }
+                },
+                "required": [
+                    "num1",
+                    "num2",
+                    "operator"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "extract_fruit",
+            "type": "function",
+            "description": "Extract fruit names from text.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "fruits": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "fruit": {
+                                    "type": "string",
+                                    "description": "The name of the fruit."
+                                },
+                                "color": {
+                                    "type": "string",
+                                    "description": "The color of the fruit."
+                                },
+                                "flavor": {
+                                    "type": "string",
+                                    "description": "The flavor of the fruit."
+                                }
+                            },
+                            "required": [
+                                "fruit",
+                                "color",
+                                "flavor"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "fruits"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_hotels",
+            "description": "Retrieves hotels from the search index based on the parameters provided",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The location of the hotel (i.e. Seattle, WA)"
+                    },
+                    "max_price": {
+                        "type": "number",
+                        "description": "The maximum price for the hotel"
+                    },
+                    "features": {
+                        "type": "string",
+                        "description": "A comma separated list of features (i.e. beachfront, free wifi, etc.)"
+                    }
+                },
+                "required": [
+                    "location"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "schedule_meeting",
+            "description": "Please schedule a meeting.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "attendee": {
+                        "type": "string",
+                        "description": "Attendee for the meeting"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "Date of the meeting"
+                    },
+                    "time": {
+                        "type": "string",
+                        "description": "Time of the meeting"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "book_travel",
+            "description": "Book travel",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "destination": {
+                        "type": "string",
+                        "description": "Your travel destination."
+                    },
+                    "departure": {
+                        "type": "string",
+                        "description": "From where are you traveling"
+                    },
+                    "number_people": {
+                        "type": "string",
+                        "description": "How many people are traveling"
+                    },
+                    "travel_mode": {
+                        "type": "string",
+                        "description": "What mode of travel will it be."
+                    }
+                }
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "bingIt",
+            "description": "Retrieve the web search results from bing api",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "query for bing search , for example what is Azure AI"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            }
+        }
+    }
+]
