@@ -5,6 +5,7 @@
 		<choose>
             ##CONTENT##
 		</choose>
+        <set-backend-service backend-id="@((string)context.Variables["backend-id"])" />
 		<!-- Backend Managed Identity -->
 		<authentication-managed-identity resource="https://cognitiveservices.azure.com" output-token-variable-name="managed-id-access-token" ignore-error="false" />
 		<set-header name="Authorization" exists-action="override">
@@ -14,9 +15,7 @@
 	</inbound>
 	<backend>
 		<retry condition="@(context.Response.StatusCode == 429 || context.Response.StatusCode == 500)" count="6" interval="1" first-fast-retry="true">
-			<choose>
-                ##CONTENT##
-			</choose>
+            <set-backend-service backend-id="@((string)context.Variables["backend-id"])" />
 			<forward-request buffer-request-body="true" buffer-response="false" />
 		</retry>
 	</backend>
