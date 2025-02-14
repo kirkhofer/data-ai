@@ -1,0 +1,34 @@
+<policies>
+	<inbound>
+		<base />
+		<set-variable name="path" value="@(context.Request.OriginalUrl.Path.Trim('/').Substring(context.Api.Path.Trim('/').Length))" />
+		<choose>
+            ##CONTENT##
+		</choose>
+		<!-- Backend Managed Identity -->
+		<authentication-managed-identity resource="https://cognitiveservices.azure.com" output-token-variable-name="managed-id-access-token" ignore-error="false" />
+		<set-header name="Authorization" exists-action="override">
+			<value>@("Bearer " + (string)context.Variables["managed-id-access-token"])</value>
+		</set-header>
+		<set-header name="api-key" exists-action="delete" />
+	</inbound>
+	<backend>
+		<retry condition="@(context.Response.StatusCode == 429 || context.Response.StatusCode == 500)" count="6" interval="1" first-fast-retry="true">
+			<choose>
+                ##CONTENT##
+			</choose>
+			<forward-request buffer-request-body="true" buffer-response="false" />
+		</retry>
+	</backend>
+	<outbound>
+		<base />
+	</outbound>
+	<on-error>
+		<choose>
+			<when condition="@(context.Response.StatusCode == 503)">
+				<set-status code="503" reason="You been duped" />
+			</when>
+		</choose>
+		<base />
+	</on-error>
+</policies>
