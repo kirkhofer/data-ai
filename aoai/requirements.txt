@@ -3,3 +3,7 @@ openai>=1.0.0
 pyodbc==4.0.35
 streamlit-chat
 streamlit-extras
+azure-identity  # For DefaultAzureCredential and InteractiveBrowserCredential
+requests        # For HTTP requests
+pandas          # For pandas DataFrame operations
+python-dotenv    # For load_dotenv
