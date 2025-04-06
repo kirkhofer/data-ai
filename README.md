@@ -1,6 +1,8 @@
 # data-ai
 Repo to share things I have learned over my many years of programming and data experiences
 
+Find [News](news.md) over there...
+
 # Captain's Log
 ## 2024-12-19 🎅🎄
 - 🆕 Azure AI Agent Service [movie-agent](aoai/movie-agent.ipynb)
