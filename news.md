@@ -1,5 +1,5 @@
 # News
-Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. 
+Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
 ## 2025-04-05
 - [Llama 4 herd in Foundry and Databricks](https://azure.microsoft.com/en-us/blog/introducing-the-llama-4-herd-in-azure-ai-foundry-and-azure-databricks/)
@@ -14,6 +14,9 @@ Updates, announcements and whatever I find amusing for the day. Will focus on Da
     - [SK Python agents](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/concepts/agents)
 - [AI Foundry VS Code Extension Preview](https://devblogs.microsoft.com/foundry/azure-ai-foundry-vscode-extension-preview/)
 - [More Serverless Fine Tuning Regions](https://techcommunity.microsoft.com/blog/machinelearningblog/serverless-fine-tuning-now-in-more-us-regions/4401044)
+- AI Red Teaming [Blog](https://devblogs.microsoft.com/foundry/ai-red-teaming-agent-preview) | [Docs](https://aka.ms/airedteamingagent-conceptdoc) | [Code](https://aka.ms/airedteamingagent-samples)
+- New AI Evaluation Metrics for Agents [Blog](https://devblogs.microsoft.com/foundry/evaluation-metrics-azure-ai-foundry) | [Code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/evaluation/azure-ai-evaluation/samples)
+    - Intent Resolution, Tool Call Accuracy, Task Adherence, Response Completeness and more
 
 ## 2025-03-31
 - FabCon in full swing in Vegas baby
