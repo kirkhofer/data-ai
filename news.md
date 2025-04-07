@@ -10,8 +10,7 @@ Updates, announcements and whatever I find amusing for the day. Will focus on Da
 - [New capabilities in AI Foundry](https://azure.microsoft.com/en-us/blog/new-capabilities-in-azure-ai-foundry-to-build-advanced-agentic-applications/)
     - 🤔 What is that YML file drag and drop stuff?
     -  [![Watch the video](https://img.youtube.com/vi/RjExZY_frjQ/hqdefault.jpg)](https://www.youtube.com/embed/RjExZY_frjQ)
-    - [Semantic Kernel Agent Framework Generally Available](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/)
-    - [SK Python agents](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/concepts/agents)
+- Semantic Kernel Agent Framework Generally Available [Blog](https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/) | [Code](https://github.com/microsoft/semantic-kernel/tree/main/python/samples/concepts/agents)
 - [AI Foundry VS Code Extension Preview](https://devblogs.microsoft.com/foundry/azure-ai-foundry-vscode-extension-preview/)
 - [More Serverless Fine Tuning Regions](https://techcommunity.microsoft.com/blog/machinelearningblog/serverless-fine-tuning-now-in-more-us-regions/4401044)
 - AI Red Teaming [Blog](https://devblogs.microsoft.com/foundry/ai-red-teaming-agent-preview) | [Docs](https://aka.ms/airedteamingagent-conceptdoc) | [Code](https://aka.ms/airedteamingagent-samples)
