@@ -1,6 +1,11 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
+## 2025-04-09
+- [AI Search Updates](https://aka.ms/AISearch-NewServiceUpdates)
+    - Change your pricing tier and Self-Service upgrade
+        - Before this was manual and had to backup and restore
+        
 ## 2025-04-05
 - [Llama 4 herd in Foundry and Databricks](https://azure.microsoft.com/en-us/blog/introducing-the-llama-4-herd-in-azure-ai-foundry-and-azure-databricks/)
     - Scout: On 1 H100 GTP with 10M tokens 🤯
