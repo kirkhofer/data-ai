@@ -1,6 +1,12 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
+## 2025-04-14
+- [GPT-4.1](https://azure.microsoft.com/en-us/blog/announcing-the-gpt-4-1-model-series-for-azure-ai-foundry-developers/)
+    - 1M token input 🤯
+    - Cost from highest to lowest: gpt-4.1, gpt-4.1-mini, gpt-4.1-nano
+    - Coming soon: Fine tuning GPT-4.1
+    
 ## 2025-04-09
 - [AI Search Updates](https://aka.ms/AISearch-NewServiceUpdates)
     - Change your pricing tier and Self-Service upgrade
