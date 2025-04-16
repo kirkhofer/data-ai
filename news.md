@@ -1,6 +1,11 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
+## 2025-04-16
+- [GPT4o Audio Models](https://devblogs.microsoft.com/foundry/get-started-azure-openai-advanced-audio-models/)
+    - GPT-4o-transcribe (speech-to-text), GPT-4o-mini-transcribe (speech-to-text) and GPT-4o-mini-tts (text-to-speech)
+    - Sample Gradio Soundboard
+    
 ## 2025-04-14
 - [GPT-4.1](https://azure.microsoft.com/en-us/blog/announcing-the-gpt-4-1-model-series-for-azure-ai-foundry-developers/)
     - 1M token input 🤯
