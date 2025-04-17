@@ -2,6 +2,9 @@
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
 ## 2025-04-16
+- [o3 and o4-mini](https://azure.microsoft.com/en-us/blog/o3-and-o4-mini-unlock-enterprise-agent-workflows-with-next-level-reasoning-ai-with-azure-ai-foundry-and-github/)
+    - Multimodality
+    - If you don't already have access to the other models via gating, you will need to apply [here](https://ai.azure.com)
 - [GPT4o Audio Models](https://devblogs.microsoft.com/foundry/get-started-azure-openai-advanced-audio-models/)
     - GPT-4o-transcribe (speech-to-text), GPT-4o-mini-transcribe (speech-to-text) and GPT-4o-mini-tts (text-to-speech)
     - Sample Gradio Soundboard
