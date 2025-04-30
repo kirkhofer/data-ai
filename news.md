@@ -1,6 +1,10 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
+## 2025-04-30
+- [April in Review on AI Foundry](https://devblogs.microsoft.com/foundry/whats-new-in-azure-ai-foundry-april-2025)
+- [Fine tuning support for GPT-4.1](https://azure.microsoft.com/en-us/blog/announcing-the-gpt-4-1-model-series-for-azure-ai-foundry-developers/)
+
 ## 2025-04-23
 - [gpt-image-1](https://azure.microsoft.com/en-us/blog/unveiling-gpt-image-1-rising-to-new-heights-with-image-generation-in-azure-ai-foundry/)
     - Text to image, image modification and so much more
