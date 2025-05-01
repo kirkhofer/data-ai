@@ -2,6 +2,7 @@
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
 ## 2025-04-30
+- [Phi 4 Reasoning Models](https://azure.microsoft.com/en-us/blog/one-year-of-phi-small-language-models-making-big-leaps-in-ai/) | [Examples](https://techcommunity.microsoft.com/blog/educatordeveloperblog/showcasing-phi-4-reasoning-a-game-changer-for-ai-developers/4409892)
 - [April in Review on AI Foundry](https://devblogs.microsoft.com/foundry/whats-new-in-azure-ai-foundry-april-2025)
 - [Fine tuning support for GPT-4.1](https://azure.microsoft.com/en-us/blog/announcing-the-gpt-4-1-model-series-for-azure-ai-foundry-developers/)
 
