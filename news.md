@@ -1,6 +1,9 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
+## 2025-05-07
+- [New models available to AI Agent Service](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/azure-openai-o-series--gpt-4-1-models-now-available-in-azure-ai-agent-service/4411633)
+
 ## 2025-04-30
 - [Phi 4 Reasoning Models](https://azure.microsoft.com/en-us/blog/one-year-of-phi-small-language-models-making-big-leaps-in-ai/) | [Examples](https://techcommunity.microsoft.com/blog/educatordeveloperblog/showcasing-phi-4-reasoning-a-game-changer-for-ai-developers/4409892)
 - [April in Review on AI Foundry](https://devblogs.microsoft.com/foundry/whats-new-in-azure-ai-foundry-april-2025)
