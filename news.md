@@ -1,62 +1,11 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
-# 2025-05-19: BUILD Day 1
-- [Book of News](https://news.microsoft.com/build-2025-book-of-news/)
-- Open Source for Copilot in VS Code
-- [Agentic DevOps: Evolving software development with GitHub Copilot and Microsoft Azure](https://azure.microsoft.com/en-us/blog/agentic-devops-evolving-software-development-with-github-copilot-and-microsoft-azure/)
-    - https://aka.ms/AgenticDevOps
-    - Coding Agent
-- [Azure AI Foundry: Your AI App and agent factory](https://azure.microsoft.com/en-us/blog/azure-ai-foundry-your-ai-app-and-agent-factory/)
-- [Announcing Developer Essentials for Agents and Apps in Azure AI Foundry](https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/)
-- [Developing next-generation cancer care management with multi-agent orchestration](https://www.microsoft.com/en-us/industry/blog/healthcare/2025/05/19/developing-next-generation-cancer-care-management-with-multi-agent-orchestration/)
-- [Introducing agentic retrieval in Azure AI Search](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/introducing-agentic-retrieval-in-azure-ai-search/4414677)
-- [Unlock Instant On-Device AI with Foundry Local](https://devblogs.microsoft.com/foundry/unlock-instant-on-device-ai-with-foundry-local/)
-    - Foundry local looks interesting
-- [Azure AI Foundry Models: Futureproof Your GenAI Applications](https://techcommunity.microsoft.com/blog/AIPlatformBlog/azure-ai-foundry-models-futureproof-your-genai-applications/4414904)
-    - Models and Model Router
-- [Microsoft and Hugging Face expand collaboration to accelerate Open-Source AI Innovation on Azure AI Foundry](https://devblogs.microsoft.com/foundry/microsoft-and-hugging-face-expand-partnership-to-accelerate-open-source-ai-innovation-on-azure-ai-foundry/)
-    - Tighter integration with hugging face for all their models
-- [Announcing General Availability of Azure AI Foundry Agent Service](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352)
-    - Agent Service is GA
-- [Powering the Next Generation of AI Apps and Agents on the Azure Application Platform](https://techcommunity.microsoft.com/blog/appsonazureblog/powering-the-next-generation-of-ai-apps-and-agents-on-the-azure-application-plat/4414755)
-- [Multi-agent orchestration, maker controls, and more: Microsoft Copilot Studio announcements at Microsoft Build 2025](https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/multi-agent-orchestration-maker-controls-and-more-microsoft-copilot-studio-announcements-at-microsoft-build-2025/)
-    - Multi agent solutions
-- https://aka.ms/HealthcareAgentOrchestrator
-- [Microsoft extends Zero Trust to secure the agentic workforce](https://www.microsoft.com/en-us/security/blog/2025/05/19/microsoft-extends-zero-trust-to-secure-the-agentic-workforce/)
-    - https://aka.ms/SecurityForAI
-- [Achieve End-to-End Observability in Azure AI Foundry](https://devblogs.microsoft.com/foundry/achieve-end-to-end-observability-in-azure-ai-foundry/)
-- [Announcing Microsoft Entra Agent ID: Secure and manage your AI agents](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/announcing-microsoft-entra-agent-id-secure-and-manage-your-ai-agents/3827392)
-    - Entra Agent for security and monitoring
-- [Advancing Windows for AI development: New platform capabilities and tools introduced at Build 2025](https://blogs.windows.com/windowsdeveloper/2025/05/19/advancing-windows-for-ai-development-new-platform-capabilities-and-tools-introduced-at-build-2025/)
-    - AI Foundry on Windows
-    - WSL Open Source
-    - MCP on Windows
-    - https://aka.ms/WSLOpenSource
-- [Introducing Microsoft 365 Copilot Tuning, multi-agent orchestration, and more from Microsoft Build 2025](https://www.microsoft.com/en-us/microsoft-365/blog/2025/05/19/introducing-microsoft-365-copilot-tuning-multi-agent-orchestration-and-more-from-microsoft-build-2025/)
 
-- Customer Stories
-    - http://aka.ms/foundrystories
-        - https://aka.ms/aisin
-- [Grok in Foundry](https://aka.ms/foundrygrok)
-    - [Interview with Elan](https://aka.ms/BuildGrok)
-- https://github.com/microsoft/nlweb
-    - Easily create agents on existing web sites and APIs
-    - BRK240
-    - DEM575
-## Data
-- https://aka.ms/DataStories
-- https://aka.ms/FabricCosmosDB
-- https://aka.ms/FabricDigitalTwin
-- https://aka.ms/AIReadyOneLake
-- https://aka.ms/FabricChatWithYourData
+## 2025-05-07
+- [New models available to AI Agent Service](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/azure-openai-o-series--gpt-4-1-models-now-available-in-azure-ai-agent-service/4411633)
 
-## Infra
-- https://aka.ms/BuildNVidia
-
-## Science
-https://aka.ms/Science
-
-# 2025-04-30
+## 2025-04-30
+- [Phi 4 Reasoning Models](https://azure.microsoft.com/en-us/blog/one-year-of-phi-small-language-models-making-big-leaps-in-ai/) | [Examples](https://techcommunity.microsoft.com/blog/educatordeveloperblog/showcasing-phi-4-reasoning-a-game-changer-for-ai-developers/4409892)
 - [April in Review on AI Foundry](https://devblogs.microsoft.com/foundry/whats-new-in-azure-ai-foundry-april-2025)
 - [Fine tuning support for GPT-4.1](https://azure.microsoft.com/en-us/blog/announcing-the-gpt-4-1-model-series-for-azure-ai-foundry-developers/)
 
