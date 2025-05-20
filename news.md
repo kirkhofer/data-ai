@@ -3,7 +3,17 @@ Updates, announcements and whatever I find amusing for the day. Will focus on Da
 
 # 2025-05-19: BUILD Day 1
 - [Book of News](https://news.microsoft.com/build-2025-book-of-news/)
-- Open Source for Copilot in VS Code
+    - There are so many other releases that this is just the tip of the iceberg
+    - Open Source Copilot for VS Code
+    - From 1,900+ models to over 11,000 (thanks to Hugging Face)
+- Did I saw Grok exclusive to AI Foundry? Yup. Video with Elon
+    - [Interview with Elon](https://aka.ms/BuildGrok)
+- Agents in GitHub to do work for you. Yes please
+
+## AI
+- [Building a Digital Workforce with Multi-Agents in Azure AI Foundry Agent Service](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/building-a-digital-workforce-with-multi-agents-in-azure-ai-foundry-agent-service/4414671)
+- [Unlock new dimensions of creativity: Gpt-image-1 and Sora](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/unlock-new-dimensions-of-creativity-gpt-image-1-and-sora/4414972)
+
 - [Agentic DevOps: Evolving software development with GitHub Copilot and Microsoft Azure](https://azure.microsoft.com/en-us/blog/agentic-devops-evolving-software-development-with-github-copilot-and-microsoft-azure/)
     - https://aka.ms/AgenticDevOps
     - Coding Agent
@@ -39,7 +49,6 @@ Updates, announcements and whatever I find amusing for the day. Will focus on Da
     - http://aka.ms/foundrystories
         - https://aka.ms/aisin
 - [Grok in Foundry](https://aka.ms/foundrygrok)
-    - [Interview with Elan](https://aka.ms/BuildGrok)
 - https://github.com/microsoft/nlweb
     - Easily create agents on existing web sites and APIs
     - BRK240
