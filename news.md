@@ -1,6 +1,13 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
+# 2025-06-06
+This was released early so just catching up: SORA hit for video rendering
+- [SORA Blog post](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/unlock-new-dimensions-of-creativity-gpt-image-1-and-sora/4414972)
+- [Video Generation Kickstart](https://learn.microsoft.com/en-us/azure/ai-services/openai/video-generation-quickstart)
+- [Video Playground](https://devblogs.microsoft.com/foundry/sora-in-video-playground/)
+> NOTE: API use only in AI Foundry for now
+
 # 2025-05-19: BUILD Day 1
 - [Book of News](https://news.microsoft.com/build-2025-book-of-news/)
     - There are so many other releases that this is just the tip of the iceberg
