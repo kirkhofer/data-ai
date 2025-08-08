@@ -1,6 +1,18 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
+# 2025-08-07: GPT 5
+- https://azure.microsoft.com/en-us/blog/gpt-5-in-azure-ai-foundry-the-future-of-ai-apps-and-agents-starts-here/
+- Four GPT-5 models:
+    - GPT-5: Full reasoning, logic-heavy, multi-step tasks
+        - Requires gated access [signup](https://aka.ms/oai/gpt5access) 
+    - GPT-5-mini: Lightweight, cost-sensitive
+    - GPT-5-nano: Optimized for speed, low latency
+    - GPT-5-chat: Multimodal, context-aware conversations
+- Model Router: Now supports GPT-5 for flexible, secure, and cost-efficient prompt routing 
+    - [Sizzle Video for GPT 5 Model Router](https://www.youtube.com/watch?v=xgdz-KCFpFI)
+- [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
+
 # 2025-06-06
 This was released early so just catching up: SORA hit for video rendering
 - [SORA Blog post](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/unlock-new-dimensions-of-creativity-gpt-image-1-and-sora/4414972)
