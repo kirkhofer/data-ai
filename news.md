@@ -13,6 +13,10 @@ Updates, announcements and whatever I find amusing for the day. Will focus on Da
     - [Sizzle Video for GPT 5 Model Router](https://www.youtube.com/watch?v=xgdz-KCFpFI)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
 
+# 2025-08-05
+Browser automation, using Playwright. This is very much next level and I am hoping to use it to do some of my daily tasks:
+- [Learn Documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/browser-automation-samples)
+
 # 2025-06-06
 This was released early so just catching up: SORA hit for video rendering
 - [SORA Blog post](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/unlock-new-dimensions-of-creativity-gpt-image-1-and-sora/4414972)
