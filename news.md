@@ -1,6 +1,10 @@
 # News
 Updates, announcements and whatever I find amusing for the day. Will focus on Data and AI around the horn and everything related. Most examples or code will by Python unless otherwise stated. 
 
+# 2025-08-27: Responses API Generally Available
+- https://techcommunity.microsoft.com/blog/azure-ai-services-blog/the-responses-api-in-azure-ai-foundry-is-now-generally-available/4446567
+- https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses?tabs=python-secure
+
 # 2025-08-07: GPT 5
 - https://azure.microsoft.com/en-us/blog/gpt-5-in-azure-ai-foundry-the-future-of-ai-apps-and-agents-starts-here/
 - Four GPT-5 models:
