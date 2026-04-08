@@ -101,59 +101,80 @@ If you do not have Terminal installed, you need this. But it is there for Window
 
 Make sure to exeucte these one at a time as you might not have proper access or get errors
 
+### Install Terminal (If you don't have it)
+> NOTE: Go to **Start** and type **Terminal**, if it is already there, skip this
 ```powershell copy
-# Install the terminal
-# NOTE: You probably have this installed already so just search for it first
 winget install -e --id Microsoft.WindowsTerminal
+```
 
-# Install powershell this is not "Windows PowerShell"
+### Install powershell this is not "Windows PowerShell"
+```powershell copy
 winget install -e --id Microsoft.PowerShell
+```
 
-# Install node
+### Install NodeJS
+This is the code that runs Copilot
+```powershell copy
 winget install -e --id OpenJS.NodeJS
+```
 
-# Install GitHub CLI
+### Install GitHub CLI
+```powershell copy
 winget install -e --id GitHub.Copilot
 ```
 
+### Set PowerShell as the Default in Terminal
 You have everything you need now but if you are in Terminal and see **Windows PowerShell** time to switch that:
 - Open a new terminal tab with **PowerShell** or **Microsoft PowerShell**
 - On that dropdown arrow, go in there and change the default to *not* be **Windows PowerShell** but the new one
+- Close out of terminal after changing the default
 
+### Create a folder to work in
+You may already have a folder to work in with notes or meetings so use that first.
+
+If you don't have a folder, create one to store and track in your OneDrive (Keeps it backed up)
+
+### Launch Terminal from your folder
+If you **right-click** in a folder in **File Explorer** there is usually a **Open in Terminal** option
+
+### Launch Copilot
 ```powershell copy
-# Restart the PowerShell
-
-# Go to OneDrive so anything you create is backed up
-cd '.\OneDrive'
-
-# Create a notes director or anything
-mkdir notes; cd notes
-
-# agency copilot
 copilot
+```
 
-# Once you get familiar with copilot you can switch to copilot --yolo
+### Once you get familiar with copilot you can switch to copilot --yolo
+```powershell copy
+copilot --yolo
+```
 
-# Login
+### Login to GitHub
+```powershell copy
 /login
+```
 
-# Do option 1: 
-# Copy the code by selecting it
-# CTRL+CLICK into github.com
+#### Do option 1 for GitHub
+- Copy the code by selecting it
+- **CTRL+CLICK** into github.com
+- If you have an Enterprise account (EMU) use that or use a personal one
 
-# Install from marketplace
+### Install WorkIQ from marketplace
+```powershell copy
 /plugin marketplace add microsoft/work-iq
+```
 
-# Install workiq via plugin
+### Install workiq via plugin
+```powershell copy
 /plugin install workiq@work-iq
+```
 
-# Accept the EULA (again in GitHub Copilot CLI)
+### Accept the EULA (again in GitHub Copilot CLI)
+```powershell copy
 workiq accept-eula
+```
 
-# Test it out
+### Test it out
+```powershell copy
 What are my upcoming meetings this week?
-Summarize emails from Sarah about the budget
-Find documents I worked on yesterday
 ```
 
 You will notice a lot of annoying qustions about trust this or not but that is what `/yolo` is for to turn those off once you get the idea
