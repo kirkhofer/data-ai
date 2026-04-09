@@ -220,5 +220,27 @@ You will notice a lot of annoying qustions about trust this or not but that is w
 # Future
 - You can easily move your skills to your own plugin and share with others
 
+# Talk to Power BI Reports
+You can add the MCP server by doing this in your `~/.copilot/mcp.config.json`
+
+> NOTE: If you already have another server in there, no need to add another one
+
+```json
+{
+    "mcpServers": {
+        "powerbi-remote": {
+            "type": "http",
+            "url": "https://api.fabric.microsoft.com/v1/mcp/powerbi",
+            "copilotTokenAuthentication": {
+                "scopes": ["https://api.fabric.microsoft.com/.default"]
+            }
+        }
+    }
+}
+```
+
+## Now do you have a report you want to reverse engineer?
+- Copy the title of the report and ask CLI how to do it
+
 # Credits
 Too many to list off here and it continues to grow
