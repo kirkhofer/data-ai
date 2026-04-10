@@ -123,6 +123,11 @@ winget install -e --id OpenJS.NodeJS
 winget install -e --id GitHub.Copilot
 ```
 
+### Install git
+```powershell copy
+winget install --id Git.Git -e --source winget
+```
+
 ### Set PowerShell as the Default in Terminal
 You have everything you need now but if you are in Terminal and see **Windows PowerShell** time to switch that:
 - Open a new terminal tab with **PowerShell** or **Microsoft PowerShell**
